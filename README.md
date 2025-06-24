@@ -7,6 +7,7 @@ Then, you'll need to have Python installed. The steps are as follows:
   2. Run the installer and check "Add Python to PATH"
   3. Click "Install Now"
   4. Verify installation by opening Command Prompt and typing "python --version"
+
 If you see your Python version, then you have successfully installed Python, and you can continue.
 Then, you'll need to make sure you're in the right directory. Navigate to the streamlit_ml_app folder. You can find the path by right-clicking the folder and selecting "Copy as Path". Once you have the right path, type "cd YourPathHere" in your Command Prompt.
 Once you're in the folder, you need to create a virtual environment. To do so, type "python -m venv mystreamlitapp1" into your Command Prompt. The name can be anything; it doesn't have to be mystreamlitapp1.
