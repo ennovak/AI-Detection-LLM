@@ -65,56 +65,64 @@ def load_models():
             models['pipeline_available'] = False
         # Load TF-IDF vectorizer
         try:
-            models['vectorizer'] = joblib.load('models/tfidf_vectorizer.pkl')
+            URI = 'https://github.com/ennovak/AI-Detection-LLM/raw/refs/heads/main/streamlit_ml_app/models/tfidf_vectorizer.pkl'
+            models['vectorizer'] = joblib.load(BytesIO(requests.get(URI).content))
             models['vectorizer_available'] = True
         except FileNotFoundError:
             models['vectorizer_available'] = False
         
         # Load SVM model
         try:
-            models['svm'] = joblib.load('models/svm_model.pkl')
+            URI = 'https://github.com/ennovak/AI-Detection-LLM/raw/refs/heads/main/streamlit_ml_app/models/svm_model.pkl'
+            models['svm'] = joblib.load(BytesIO(requests.get(URI).content))
             models['svm_available'] = True
         except FileNotFoundError:
             models['svm_available'] = False
         
         # Load Decision Tree model
         try:
-            models['decision_tree'] = joblib.load('models/dt_model.pkl')
+            URI = 'https://github.com/ennovak/AI-Detection-LLM/raw/refs/heads/main/streamlit_ml_app/models/dt_model.pkl'
+            models['decision_tree'] = joblib.load(BytesIO(requests.get(URI).content))
             models['dt_available'] = True
         except FileNotFoundError:
             models['dt_available'] = False
 
         # Load AdaBoost model
         try:
-            models['adaboost'] = joblib.load('models/ada_model.pkl')
+            URI = 'https://github.com/ennovak/AI-Detection-LLM/raw/refs/heads/main/streamlit_ml_app/models/ada_model.pkl'
+            models['adaboost'] = joblib.load(BytesIO(requests.get(URI).content))
             models['ada_available'] = True
         except FileNotFoundError:
             models['ada_available'] = False
         
         # Load CNN model
         try:
-            models['CNN'] = joblib.load('models/CNN.pkl')
+            URI = 'https://github.com/ennovak/AI-Detection-LLM/raw/refs/heads/main/streamlit_ml_app/models/CNN.pkl'
+            models['CNN'] = joblib.load(BytesIO(requests.get(URI).content))
             models['CNN_available'] = True
         except FileNotFoundError:
             models['CNN_available'] = False
 
         # Load RNN model
         try:
-            models['RNN'] = joblib.load('models/RNN.pkl')
+            URI = 'https://github.com/ennovak/AI-Detection-LLM/raw/refs/heads/main/streamlit_ml_app/models/RNN.pkl'
+            models['RNN'] = joblib.load(BytesIO(requests.get(URI).content))
             models['RNN_available'] = True
         except FileNotFoundError:
             models['RNN_available'] = False
 
         # Load LSTM model
         try:
-            models['LSTM'] = joblib.load('models/LSTM.pkl')
+            URI = 'https://github.com/ennovak/AI-Detection-LLM/raw/refs/heads/main/streamlit_ml_app/models/LSTM.pkl'
+            models['LSTM'] = joblib.load(BytesIO(requests.get(URI).content))
             models['LSTM_available'] = True
         except FileNotFoundError:
             models['LSTM_available'] = False
 
         # Load tokenizer
         try:
-            models['Tokenizer'] = joblib.load('models/tokenizer.pkl')
+            URI = 'https://github.com/ennovak/AI-Detection-LLM/raw/refs/heads/main/streamlit_ml_app/models/tokenizer.pkl'
+            models['Tokenizer'] = joblib.load(BytesIO(requests.get(URI).content))
             models['tokenizer_available'] = True
         except FileNotFoundError:
             models['tokenizer_available'] = False
