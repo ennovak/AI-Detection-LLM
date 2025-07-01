@@ -54,7 +54,7 @@ def load_models():
     models = {}
     
     try:
-        # Load the main pipeline (Logistic Regression)
+        # Load the main pipeline (SVM)
         try:
             models['pipeline'] = joblib.load('models/ai_detection_pipeline.pkl')
             models['pipeline_available'] = True
