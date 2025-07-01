@@ -56,11 +56,10 @@ def load_models():
     try:
         # Load the main pipeline (SVM)
         try:
-            models['pipeline'] = joblib.load('models/ai_detection_pipeline.pkl')
+            models['pipeline'] = joblib.load('https://raw.githubusercontent.com/ennovak/AI-Detection-LLM/main/streamlit_ml_app/models/ai_detection_pipeline.pkl')
             models['pipeline_available'] = True
         except FileNotFoundError:
             models['pipeline_available'] = False
-        
         # Load TF-IDF vectorizer
         try:
             models['vectorizer'] = joblib.load('models/tfidf_vectorizer.pkl')
