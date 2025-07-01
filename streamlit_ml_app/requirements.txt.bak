@@ -9,3 +9,4 @@ streamlit
 pdfplumber
 pathlib
 python-docx
+tensorflow
