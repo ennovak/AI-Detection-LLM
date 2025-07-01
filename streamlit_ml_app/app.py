@@ -56,7 +56,7 @@ def load_models():
     try:
         # Load the main pipeline (SVM)
         try:
-            models['pipeline'] = joblib.load('AI-Detection-LLM/streamlit_ml_app/models/ai_detection_pipeline.pkl')
+            models['pipeline'] = joblib.load('models/ai_detection_pipeline.pkl')
             models['pipeline_available'] = True
         except FileNotFoundError:
             models['pipeline_available'] = False
@@ -91,7 +91,7 @@ def load_models():
         
         # Load CNN model
         try:
-            models['CNN'] = joblib.load('models/CNN.pkl')
+            models['CNN'] = joblib.load('streamlit_ml_app/models/CNN.pkl')
             models['CNN_available'] = True
         except FileNotFoundError:
             models['CNN_available'] = False
