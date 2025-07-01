@@ -4,5 +4,5 @@ This is my project for the course Intro to Large Language Models. It takes writt
 1. To use the app, you'll first need to clone this repository to your local computer. To do so, open Git Bash and navigate to the directory you want the repository to be in by typing "cd (insert path)".
 2. Once you're in the desired directory, clone the repository by typing "git clone https://github.com/ennovak/AI-Detection-LLM.git"
 3. Now, open the streamlit_ml_app folder in Visual Studio Code.
-4. Open a new terminal and type "pip install requirements.txt".
+4. Open a new terminal and type "pip install -r requirements.txt".
 5. Once all of the requirements are installed, you can run the app by typing "streamlit run app.py"!
