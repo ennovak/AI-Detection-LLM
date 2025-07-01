@@ -907,7 +907,7 @@ elif page == "📊 Model Info":
             ("CNN.pkl", "CNN Classifier", models.get('CNN_available', False)),
             ("RNN.pkl", "RNN Classifier", models.get('RNN_available', False)),
             ("LSTM.pkl", "LSTM Classifier", models.get('LSTM_available', False)),
-            ("Tokenizer.pkl", "Tokenizer", models.get('tokenizer_available', False))
+            ("tokenizer.pkl", "Tokenizer", models.get('tokenizer_available', False))
         ]
         
         for filename, description, status in files_to_check:
@@ -1013,7 +1013,7 @@ elif page == "❓ Help":
     │   └── CNN.pkl                        # CNN classifier 
     │   └── RNN.pkl                        # RNN classifier 
     │   └── LSTM.pkl                       # LSTM classifier 
-    │   └── Tokenizer.pkl                  # Deep Learning tokenizer 
+    │   └── tokenizer.pkl                  # Deep Learning tokenizer 
     └── sample_data/                       # Sample files
         ├── sample_texts.txt
         └── sample_data.csv
