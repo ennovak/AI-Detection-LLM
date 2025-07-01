@@ -11,6 +11,8 @@ import pdfplumber
 import pathlib
 from docx import Document
 from tensorflow.keras.preprocessing.sequence import pad_sequences # type: ignore
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
 # Page Configuration
 st.set_page_config(
@@ -91,7 +93,7 @@ def load_models():
         
         # Load CNN model
         try:
-            models['CNN'] = joblib.load('streamlit_ml_app/models/CNN.pkl')
+            models['CNN'] = joblib.load('models/CNN.pkl')
             models['CNN_available'] = True
         except FileNotFoundError:
             models['CNN_available'] = False
