@@ -11,6 +11,8 @@ import pdfplumber
 import pathlib
 from docx import Document
 from tensorflow.keras.preprocessing.sequence import pad_sequences # type: ignore
+from io import BytesIO
+import requests
 
 # Page Configuration
 st.set_page_config(
@@ -56,7 +58,8 @@ def load_models():
     try:
         # Load the main pipeline (SVM)
         try:
-            models['pipeline'] = joblib.load('models/ai_detection_pipeline.pkl')
+            URI = 'https://github.com/ennovak/AI-Detection-LLM/raw/refs/heads/main/streamlit_ml_app/models/ai_detection_pipeline.pkl'
+            models['pipeline'] = joblib.load(BytesIO(requests.get(URI).content))
             models['pipeline_available'] = True
         except FileNotFoundError:
             models['pipeline_available'] = False
