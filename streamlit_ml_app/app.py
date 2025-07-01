@@ -10,7 +10,6 @@ import seaborn as sns
 import pdfplumber
 import pathlib
 from docx import Document
-from tensorflow.keras.preprocessing.text import Tokenizer # type: ignore
 from tensorflow.keras.preprocessing.sequence import pad_sequences # type: ignore
 
 # Page Configuration
