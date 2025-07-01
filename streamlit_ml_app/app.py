@@ -281,7 +281,7 @@ if page == "🏠 Home":
     st.markdown('<h1 class="main-header">🤖 AI Detection App</h1>', unsafe_allow_html=True)
     
     st.markdown("""
-    Welcome to your machine and deep learning web application! This app demonstrates AI detection
+    Welcome to my machine and deep learning web application! This app demonstrates AI detection
     using multiple trained models: **SVM**, **Decision Tree**, **AdaBoost**, **CNN**, **RNN**, and **LSTM**.
     """)
     
@@ -495,49 +495,49 @@ elif page == "🔮 Single Prediction":
                         if not text:
                             st.error("No text found in file")
                         else:
-                            st.info(f"Processing file...")
-                            progress_bar = st.progress(0)
-                            prediction, probabilities = make_prediction(text, model_choice, models)
-                            progress_bar.progress(100)
-                            text_processed = text[:100] + "..." if len(text) > 100 else text
-                            
-                            if prediction and probabilities is not None:
-                                # Display peak at processed text
-                                st.markdown(f"**Processed Text:** {text_processed}")
+                            with st.spinner('Analyzing file...'):
+                                progress_bar = st.progress(0)
+                                prediction, probabilities = make_prediction(text, model_choice, models)
+                                progress_bar.progress(100)
+                                text_processed = text[:100] + "..." if len(text) > 100 else text
+                                
+                                if prediction and probabilities is not None:
+                                    # Display peak at processed text
+                                    st.markdown(f"**Processed Text:** {text_processed}")
 
-                                # Display prediction
-                                col1, col2 = st.columns([3, 1])
+                                    # Display prediction
+                                    col1, col2 = st.columns([3, 1])
+                                    
+                                    with col1:
+                                        if prediction == "Human":
+                                            st.success(f"🎯 Prediction: **{prediction} Written**")
+                                        else:
+                                            st.error(f"🎯 Prediction: **{prediction} Written**")
+                                    
+                                    with col2:
+                                        confidence = max(probabilities)
+                                        st.metric("Confidence", f"{confidence:.1%}")
+                                    
+                                    # Create probability chart
+                                    st.subheader("📊 Prediction Probabilities")
+                                    
+                                    # Detailed probabilities
+                                    col1, col2 = st.columns(2)
+                                    with col1:
+                                        st.metric("AI", f"{probabilities[1]:.1%}")
+                                    with col2:
+                                        st.metric("Human", f"{probabilities[0]:.1%}")
+                                    
+                                    # Bar chart
+                                    class_names = ['Human', 'AI']
+                                    prob_df = pd.DataFrame({
+                                        'Written by': class_names,
+                                        'Probability': probabilities
+                                    })
+                                    st.bar_chart(prob_df.set_index('Written by'), height=300)
                                 
-                                with col1:
-                                    if prediction == "Human":
-                                        st.success(f"🎯 Prediction: **{prediction} Written**")
-                                    else:
-                                        st.error(f"🎯 Prediction: **{prediction} Written**")
-                                
-                                with col2:
-                                    confidence = max(probabilities)
-                                    st.metric("Confidence", f"{confidence:.1%}")
-                                
-                                # Create probability chart
-                                st.subheader("📊 Prediction Probabilities")
-                                
-                                # Detailed probabilities
-                                col1, col2 = st.columns(2)
-                                with col1:
-                                    st.metric("AI", f"{probabilities[1]:.1%}")
-                                with col2:
-                                    st.metric("Human", f"{probabilities[0]:.1%}")
-                                
-                                # Bar chart
-                                class_names = ['Human', 'AI']
-                                prob_df = pd.DataFrame({
-                                    'Written by': class_names,
-                                    'Probability': probabilities
-                                })
-                                st.bar_chart(prob_df.set_index('Written by'), height=300)
-                            
-                            else:
-                                st.error("Failed to make prediction")
+                                else:
+                                    st.error("Failed to make prediction")
 
                     except Exception as e:
                         st.error(f"Error processing file: {e}")
@@ -999,7 +999,7 @@ elif page == "❓ Help":
         """)
     
     # System information
-    st.subheader("💻 Your Project Structure")
+    st.subheader("💻 Project Structure")
     st.code("""
     streamlit_ml_app/
     ├── app.py                              # Main application
