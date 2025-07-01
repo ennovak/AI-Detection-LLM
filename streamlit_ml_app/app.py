@@ -56,7 +56,7 @@ def load_models():
     try:
         # Load the main pipeline (SVM)
         try:
-            models['pipeline'] = joblib.load('https://raw.githubusercontent.com/ennovak/AI-Detection-LLM/main/streamlit_ml_app/models/ai_detection_pipeline.pkl')
+            models['pipeline'] = joblib.load('models/ai_detection_pipeline.pkl')
             models['pipeline_available'] = True
         except FileNotFoundError:
             models['pipeline_available'] = False
@@ -118,7 +118,7 @@ def load_models():
         
         # Check if at least one complete setup is available
         pipeline_ready = models['pipeline_available']
-        individual_ready = (models['vectorizer_available'] and (models['svm_available'] or models['dt_available'] or models['ada_available'])) or (models['Tokenizer_available'] and (models['CNN_available'] or models['RNN_available'] or models['LSTM_available']))
+        individual_ready = (models['vectorizer_available'] and (models['svm_available'] or models['dt_available'] or models['ada_available'])) or (models['tokenizer_available'] and (models['CNN_available'] or models['RNN_available'] or models['LSTM_available']))
         
         if not (pipeline_ready or individual_ready):
             st.error("No complete model setup found!")
