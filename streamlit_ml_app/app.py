@@ -11,8 +11,6 @@ import pdfplumber
 import pathlib
 from docx import Document
 from tensorflow.keras.preprocessing.sequence import pad_sequences # type: ignore
-import os
-os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
 # Page Configuration
 st.set_page_config(
